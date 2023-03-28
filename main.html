@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/7378/7378257.png" type="image/x-icon">
+<link href='https://fonts.googleapis.com/css?family=Albert Sans' rel='stylesheet'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+integrity="sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+crossorigin="anonymous" 
+referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+crossorigin="anonymous" 
+referrerpolicy="no-referrer"></script>
+<style>
+body {
+background-color: #202124;
+}
+table {
+margin-left: 26px;
+margin-right: 0px;
+}
+input[type="text"] {
+padding: 30px 60px;
+font-family: 'DM Mono';
+font-weight: 900;
+font-size: 40px;
+background-color: #202124;
+color: #e6e6e6;
+border: 5px solid ;
+border-color: #e6e6e6;
+border-radius: 75px;
+text-align: left;
+}
+.column {
+float: left;
+width: 320px;
+height:20px;
+padding-left: 26px;
+}
+.row::after {
+content: "";
+clear: both;
+display: table;
+}
+span{
+letter-spacing: 3.5px;
+padding: 0 5px;
+background: linear-gradient(
+to bottom,
+transparent 65%,
+#595959 50%
+);
+}
+</style>
+</head>
+<body>
+<table id="calcu">
+<tr><td><p style="font-size: 50px; font-family: 'Montserrat'; font-weight: 1000; color: #fff;"><span>Expression Calculator</span></p></td></tr>
+<tr>
+<td><p style="font-size: 40px; font-family: 'DM Mono'; color: #e6e6e6; font-weight: 700;">Enter any expression</p></td>
+</tr>
+<tr>
+<td><input type="text" id="result"></td>
+<tr>
+<td><p style="font-size: 40px; font-family: 'DM Mono'; color: #e6e6e6; font-weight: 1000;">Click on enter once done...</p></td></tr>
+<tr>
+    <td><p style="font-size: 21px; font-family: 'DM Mono'; color: #e6e6e6; font-weight: 650;">Use methods like:<br> -- cbrt(n): For cube root of 'n' number<br> -- sqrt(n): For square root of 'n' number<br> -- n^a: For 'n' raised to the power of 'a' root of n number</p></td></tr>
+<tr>
+<td><p style="font-size: 22px; font-family: 'DM Mono'; color: #e47a87; font-weight: 600;">* NOTE - Do not enter complex mathematical equations.<br>This calculator can work upto scientific equations...</p></td></tr>
+<tr>
+    <td>
+        <br><br><br><br><br><br><p style="font-size: 50px; font-family: 'Montserrat'; color: #fff; font-weight: 1000;"><span>About the author</span></p>
+<div class="row">
+    <div class="column">
+    <img src="https://pps.whatsapp.net/v/t61.24694-24/317642194_872868080463147_1358066573273183672_n.jpg?ccb=11-4&oh=01_AdQ1r9bG38YnJPbxC9RYCNn1DX0xQv7mgcHi_CWXFbtNIw&oe=6429ADBD" style="height:300px; border-radius: 50%;">
+    </div>
+    <div class="column">
+    <p><font face="DM Mono" size=5px color="#e6e6e6" style="font-weight: 650;">SHISHIR MURTHY<br>- Developer <br>- Programmer <br>- UI Designer</font></p>
+    <p><font face="Montserrat" size=5px color="#e6e6e6" style="padding-top:20px; font-weight: 750;"><br><span>FOLLOW ME ON</span><br><br></font>
+    <a href="https://www.instagram.com/shishir.murthy">
+    <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/instagram_online_social_media-48.png">
+    </a>&nbsp&nbsp
+    <a href="https://www.github.com/thorham2021">
+    <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/64/github_social_media_logo-48.png">
+    </a></p>
+    </div>
+    </div>
+    </td>
+    </tr>
+</table> 
+<script>
+        // Function that display value
+        function dis(val) {
+            document.getElementById("result").value += val
+        }
+  
+        function myFunction(event) {
+            if (event.key == '0' || event.key == '1' 
+                || event.key == '2' || event.key == '3'
+                || event.key == '4' || event.key == '5' 
+                || event.key == '6' || event.key == '7'
+                || event.key == '8' || event.key == '9' 
+                || event.key == '+' || event.key == '-'
+                || event.key == '*' || event.key == '/')
+                document.getElementById("result").value += event.key;
+        }
+  
+        var cal = document.getElementById("calcu");
+        cal.onkeyup = function (event) {
+            if (event.keyCode === 13) {
+                console.log("Enter");
+                let x = document.getElementById("result").value
+                console.log(x);
+                solve();
+            }
+        }
+  
+        // Function that evaluates the digit and return result
+        function solve() {
+            let x = document.getElementById("result").value
+            let y = math.evaluate(x)
+            document.getElementById("result").value = y
+        }
+  
+        // Function that clear the display
+        function clr() {
+            document.getElementById("result").value = ""
+        }
+</script>
+</body>
+</html>
